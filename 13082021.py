@@ -13,5 +13,11 @@ def get_profiles(user_id, fields, access_token):
         return None
     return json_response['response']
 
+ids = ','.join(str(user) for user in users)
+fd = ','.join(fields)
 
+users_d = get_profiles(ids, fd, token)
+df = pandas.DataFrame(users_d)
+
+print(df)
 
